@@ -1,0 +1,26 @@
+<h1>Welcome to my Website</h1>
+
+<div>
+    
+<% if employee_signed_in? %>
+  <li>
+  <%= link_to('Edit registration', edit_employee_registration_path) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Register as a new Employee', new_employee_registration_path)  %>
+  </li>
+<% end %>
+
+
+<% if employee_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_employee_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login as an Employee', new_employee_session_path)  %>  
+  </li>
+<% end %>
+
+</div>
