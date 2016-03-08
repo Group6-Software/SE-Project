@@ -46,3 +46,5 @@ group :development do
 end
 
 gem 'devise'
+
+gem "omniauth-google-oauth2", "~> 0.2.1"
