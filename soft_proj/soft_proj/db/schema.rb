@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322094321) do
+ActiveRecord::Schema.define(version: 20160322133743) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "customer_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160322094321) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "email_address"
   end
 
 end

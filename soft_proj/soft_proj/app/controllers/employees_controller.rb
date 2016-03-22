@@ -3,6 +3,21 @@ class EmployeesController < ApplicationController
 
   # GET /employees
   # GET /employees.json
+  
+  helper_method :isEmployee?
+  def isEmployee?
+    if not current_user
+      return false
+    end
+    
+    if (Employee.find_by email_address: current_user.email_address) == nil
+      return false
+    end
+    
+    return true
+  end
+  
+  
   def index
     @employees = Employee.all
   end
