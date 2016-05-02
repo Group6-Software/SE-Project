@@ -30,6 +30,10 @@ class ItemsController < ApplicationController
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
+        
+        # set other things if correct
+        @item.item_id = @item.id
+        @item.save
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -69,6 +73,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:itemId, :name, :price)
+      params.require(:item).permit(:item_id, :name, :cost)
     end
 end

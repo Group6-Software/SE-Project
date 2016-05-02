@@ -11,40 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308150433) do
+ActiveRecord::Schema.define(version: 20160402050715) do
 
-  create_table "customer_orders", force: :cascade do |t|
-    t.integer  "orderId"
-    t.integer  "customerId"
-    t.integer  "itemId"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "customers", force: :cascade do |t|
+    t.string  "name"
+    t.string  "email_address"
+    t.integer "customer_id"
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "email_address"
+    t.string   "address"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "employee_id"
   end
 
-  add_index "employees", ["email"], name: "index_employees_on_email", unique: true
-  add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
-
   create_table "items", force: :cascade do |t|
-    t.integer  "itemId"
     t.string   "name"
-    t.integer  "price"
+    t.string   "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "item_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.integer  "item_id"
+    t.datetime "placed_at"
+    t.boolean  "delievered"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "order_id"
+    t.integer  "quantity"
+    t.string   "status"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160308150433) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "email_address"
   end
 
 end
