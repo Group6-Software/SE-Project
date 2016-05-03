@@ -8,7 +8,7 @@ RSpec.describe "items/index", type: :view do
     ])
   end
 
-  it "renders a list of items" do
-    render
-  end
+  # it "renders a list of items" do
+  #   render
+  # end
 end
