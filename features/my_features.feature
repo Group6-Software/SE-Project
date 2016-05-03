@@ -35,3 +35,11 @@ Then I should see "Extension" in a link
 Scenario: Find the link to the form
 Given I am on the home page
 Then I should see "CSR" in a link
+
+Scenario: Find the link to the form
+Given I am on the home page
+Then I should see "Fertilizer" in a link
+
+Scenario: Find the link to the form
+Given I am on the home page
+Then I should see "Sign in with Google" in a link

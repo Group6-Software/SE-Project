@@ -7,9 +7,18 @@ Feature: Viewer signs up for the newsletter
     Given I am on "/orders/new"
     Then I should see "Place a new Order"
  
+ 
   Scenario: Fill out form
     Given I am on "/orders/new"
     When I fill in "Item" with "seed"
+    And I fill in "Quantity" with "2"
+    And I click "Create Order"
+    Then I should see "Order was successfully created."
+    
+    
+    Scenario: Place Order
+    Given I am on "/orders/new"
+    When I fill in "Item" with "1"
     And I fill in "Quantity" with "2"
     And I click "Create Order"
     Then I should see "Order was successfully created."
