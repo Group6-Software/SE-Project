@@ -52,6 +52,7 @@ class OrdersController < ApplicationController
         # set other things if correct
         @order.order_id = @order.id
         @order.item_name = item.name
+        @order.customer_name = current_user.name
         @order.cost = (item.cost) * (@order.quantity)
         @order.status = "new"
         @order.placed_at = Time.now

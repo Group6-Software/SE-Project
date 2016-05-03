@@ -6,9 +6,10 @@
   <table>
     <thead>
       <tr>
-        <th>Order ID</th>
         <% if isEmployee? %>
-        <th>Customer ID</th>
+          <th>Order ID</th>
+          <th>Customer ID</th>
+          <th>Customer Name</th>
         <% end %>
         <th>Item ID</th>
         <th>Item Name</th>
@@ -22,9 +23,10 @@
     <tbody class="tblVals">
       <% @orders.each do |order| %>
         <tr>
-          <td align="center"><%= order.order_id %></td>
           <% if isEmployee? %>
+            <td align="center"><%= order.order_id %></td>
             <td align="center"><%= order.customer_id %></td>
+            <td align="center"><%= order.customer_name %></td>
           <% end %>
           <td align="center"><%= order.item_id %></td>
           <td align="center"><%= order.item_name %></td>
